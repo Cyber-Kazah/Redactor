@@ -83,16 +83,16 @@ struct Picture
     Picture menuPic[count_pic];
     menuPic[0] = {10, 100, txLoadImage("Pic/персонажи/shef.bmp"), 150, 150, 500, 500, false, "персонажи"};
     menuPic[1] = {10, 300, txLoadImage("Pic/персонажи/Stet.bmp"), 150, 150, 500, 500, false, "персонажи"};
-    menuPic[2] = {10, 100, txLoadImage("Pic/–астительность/brov.bmp"), 150, 150, 500, 500, false, "–астительность"};
-    menuPic[3] = {10, 300, txLoadImage("Pic/–астительность/usi.bmp"), 150, 150, 500, 500, false, "–астительность"};
+    menuPic[2] = {10, 100, txLoadImage("Pic/–астительность/brov.bmp"), 150, 150, 500, 500, false, "растительность"};
+    menuPic[3] = {10, 300, txLoadImage("Pic/–астительность/usi.bmp"), 150, 150, 500, 500, false, "растительность"};
 
 
     //картинки на физ. поле
     Picture centrPic[count_pic];
     centrPic[0] = {350, 100, menuPic[0].pic, 500, 500, menuPic[0].w, menuPic[0].h, false, "персонажи"};
     centrPic[1] = {350, 100, menuPic[1].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "персонажи"};
-    centrPic[2] = {350, 100, menuPic[2].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "–астительность"};
-    centrPic[3] = {350, 100, menuPic[3].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "–астительность"};
+    centrPic[2] = {350, 100, menuPic[2].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
+    centrPic[3] = {350, 100, menuPic[3].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
 
     while(!GetAsyncKeyState (VK_ESCAPE))
     {
@@ -131,35 +131,24 @@ struct Picture
             }
         }
 
-        if(btn[0].click())
+        //ликвидировать
+        for(int npic=0; npic<count_pic; npic++)
         {
-            menuPic[0].visible = true;
-            menuPic[1].visible = true;
-        }
+            if(menuPic[npic].click() && menuPic[npic].visible)
+            {
+                for(int npic1=0; npic1<count_pic; npic1++)
+                {
+                    if(centrPic[npic1].category == centrPic[npic].category)
+                    {
+                        centrPic[npic1].visible = false;
+                    }
 
-        if(btn[1].click())
-        {
-            menuPic[2].visible = true;
-        }
+                }
+                centrPic[npic].visible = !centrPic[npic].visible;
+                txSleep(10);
+            }
+         }
 
-        if(menuPic[0].click())
-        {
-           centrPic[0].visible = true;
-        }
-
-        if(menuPic[1].click())
-        {
-           centrPic[1].visible = true;
-        }
-
-        if(menuPic[2].click())
-        {
-           centrPic[2].visible = true;
-        }
-        if(menuPic[3].click())
-        {
-           centrPic[3].visible = true;
-        }
 
 //Win32::TransparentBlt (txDC(), 350, 200, 500, 500, pictures, 0, 0, 500, 500, TX_WHITE);
         txEnd();
