@@ -69,30 +69,38 @@ struct Picture
     txCreateWindow (1200, 700);
     txDisableAutoPause();
     txTextCursor (false);
-    int count_btn = 4;
-    int count_pic = 4;
+    int count_btn = 5;
+    int count_pic = 5;
 
     //кнопки масив
     Button btn[count_btn];
     btn[0] = {60, "персонажи", "персонажи"};
     btn[1] = {250, "растительность", "растительность"};
     btn[2] = {440, "шл€пы", "шл€пы"};
-    btn[3] = {620, "оптика", "оптика"};
+    btn[3] = {630, "оптика", "оптика"};
+    btn[4] = {800, "аксессуары", "аксессуары"};
 
     //картинки меню выбора
     Picture menuPic[count_pic];
     menuPic[0] = {10, 100, txLoadImage("Pic/персонажи/shef.bmp"), 150, 150, 500, 500, false, "персонажи"};
     menuPic[1] = {10, 300, txLoadImage("Pic/персонажи/Stet.bmp"), 150, 150, 500, 500, false, "персонажи"};
-    menuPic[2] = {10, 100, txLoadImage("Pic/–астительность/brov.bmp"), 150, 150, 500, 500, false, "растительность"};
-    menuPic[3] = {10, 300, txLoadImage("Pic/–астительность/usi.bmp"), 150, 150, 500, 500, false, "растительность"};
+    menuPic[2] = {10, 500, txLoadImage("Pic/персонажи/Ryan.bmp"), 150, 150, 500, 500, false, "персонажи"};
+    menuPic[3] = {10, 100, txLoadImage("Pic/–астительность/brov.bmp"), 150, 150, 500, 500, false, "растительность"};
+    menuPic[4] = {10, 300, txLoadImage("Pic/–астительность/usi.bmp"), 150, 150, 500, 500, false, "растительность"};
+
 
 
     //картинки на физ. поле
     Picture centrPic[count_pic];
     centrPic[0] = {350, 100, menuPic[0].pic, 500, 500, menuPic[0].w, menuPic[0].h, false, "персонажи"};
     centrPic[1] = {350, 100, menuPic[1].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "персонажи"};
-    centrPic[2] = {350, 100, menuPic[2].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
+    centrPic[2] = {350, 100, menuPic[2].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "персонажи"};
     centrPic[3] = {350, 100, menuPic[3].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
+    centrPic[4] = {350, 100, menuPic[4].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
+
+
+    int vybor = -1;
+    bool mouse_click = false;
 
     while(!GetAsyncKeyState (VK_ESCAPE))
     {
@@ -101,7 +109,7 @@ struct Picture
         txSetFillColor(TX_YELLOW);
         txClear();
         //кнопки
-        for(int i=0; i<4; i++)
+        for(int i=0; i<count_btn; i++)
         {
             btn[i].draw();
         }
@@ -148,6 +156,76 @@ struct Picture
                 txSleep(10);
             }
          }
+        //клик по картинке
+        for(int npic=0; npic<count_pic; npic++)
+        {
+            if(menuPic[npic].click() && menuPic[npic].visible)
+            {
+                centrPic[npic].visible = true;
+            }
+
+
+        }
+
+        for(int i=0; i<count_pic; i++)
+        {
+          if(txMouseButtons() == 1 &&
+          txMouseX() >= centrPic[i].x &&
+          txMouseX()<= centrPic[i].x + centrPic[i].w_scr &&
+          txMouseY() >= centrPic[i].y &&
+          txMouseY()<= centrPic[i].y + centrPic[i].h_scr &&
+          centrPic[i].visible)
+          {
+            vybor = i;
+            mouse_click = true;
+          }
+
+
+        }
+
+        char str[10];
+        sprintf(str, "»ндекс = %d", vybor);
+        txTextOut(10, 650, str);
+
+        if(vybor>=0)
+        {
+        if(GetAsyncKeyState (VK_LEFT))
+         {
+            centrPic[vybor].x -= 5;
+         }
+        if(GetAsyncKeyState (VK_RIGHT))
+         {
+            centrPic[vybor].x += 5;
+         }
+        if(GetAsyncKeyState (VK_DOWN))
+         {
+            centrPic[vybor].y += 5;
+         }
+        if(GetAsyncKeyState (VK_UP))
+         {
+            centrPic[vybor].y -= 5;
+         }
+        if(GetAsyncKeyState (VK_OEM_PLUS) || GetAsyncKeyState (VK_ADD))
+         {
+            centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1.1;
+            centrPic[vybor].h_scr = centrPic[vybor].h_scr * 1.1;
+         }
+        if(GetAsyncKeyState (VK_OEM_MINUS) || GetAsyncKeyState (VK_SUBTRACT))
+         {
+            centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;
+            centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;
+         }
+
+
+
+        }
+
+
+
+
+
+
+
 
 
 //Win32::TransparentBlt (txDC(), 350, 200, 500, 500, pictures, 0, 0, 500, 500, TX_WHITE);
