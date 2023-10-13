@@ -70,15 +70,15 @@ struct Picture
     txDisableAutoPause();
     txTextCursor (false);
     int count_btn = 5;
-    int count_pic = 5;
+    int count_pic = 8;
 
-    //кнопки масив
+    //кнопки масив(маленькие слова +120, большие +200)
     Button btn[count_btn];
     btn[0] = {60, "персонажи", "персонажи"};
-    btn[1] = {250, "растительность", "растительность"};
-    btn[2] = {440, "шл€пы", "шл€пы"};
-    btn[3] = {630, "оптика", "оптика"};
-    btn[4] = {800, "аксессуары", "аксессуары"};
+    btn[1] = {260, "растительность", "растительность"};
+    btn[2] = {460, "шл€пы", "шл€пы"};
+    btn[3] = {660, "оптика", "оптика"};
+    btn[4] = {860, "аксессуары", "аксессуары"};
 
     //картинки меню выбора
     Picture menuPic[count_pic];
@@ -87,7 +87,9 @@ struct Picture
     menuPic[2] = {10, 500, txLoadImage("Pic/персонажи/Ryan.bmp"), 150, 150, 500, 500, false, "персонажи"};
     menuPic[3] = {10, 100, txLoadImage("Pic/–астительность/brov.bmp"), 150, 150, 500, 500, false, "растительность"};
     menuPic[4] = {10, 300, txLoadImage("Pic/–астительность/usi.bmp"), 150, 150, 500, 500, false, "растительность"};
-
+    menuPic[5] = {10, 500, txLoadImage("Pic/–астительность/boroda.bmp"), 150, 150, 500, 500, false, "растительность"};
+    menuPic[6] = {10, 100, txLoadImage("Pic/Ўл€пы/Fur.bmp"), 150, 150, 500, 500, false, "шл€пы"};
+    menuPic[7] = {10, 300, txLoadImage("Pic/Ўл€пы/cow.bmp"), 150, 150, 500, 500, false, "шл€пы"};
 
 
     //картинки на физ. поле
@@ -97,6 +99,9 @@ struct Picture
     centrPic[2] = {350, 100, menuPic[2].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "персонажи"};
     centrPic[3] = {350, 100, menuPic[3].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
     centrPic[4] = {350, 100, menuPic[4].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
+    centrPic[5] = {350, 100, menuPic[5].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
+    centrPic[6] = {350, 100, menuPic[6].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "шл€пы"};
+    centrPic[7] = {350, 100, menuPic[7].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "шл€пы"};
 
 
     int vybor = -1;
@@ -177,7 +182,7 @@ struct Picture
           centrPic[i].visible)
           {
             vybor = i;
-            mouse_click = true;
+            mouse_click = false;
           }
 
 
@@ -220,11 +225,22 @@ struct Picture
 
         }
 
+        if(vybor>=0)
+        {
+            if(txMouseButtons() == 1 && !mouse_click)
+            {
+                centrPic[vybor].x = txMouseX() - centrPic[vybor].w_scr/2;
+                centrPic[vybor].y = txMouseY() - centrPic[vybor].h_scr/2;
+            }
+            else
+            {
+                if(txMouseButtons() != 1)
+                {
+                    mouse_click = true;
+                }
+            }
 
-
-
-
-
+        }
 
 
 
