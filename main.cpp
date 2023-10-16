@@ -1,68 +1,8 @@
 
 
-   #include "TXLib.h"
-
-
-struct Button
-{
-    int x;
-    const char* name;
-    string category;
-
-    void draw()
-    {
-        txSetColor(TX_TRANSPARENT);
-        txSetFillColor(TX_GRAY);
-        Win32::RoundRect (txDC(), x+5, 35, x+145, 75, 30, 30);
-        txSetColor(TX_BLACK, 2);
-        txSetFillColor(TX_WHITE);
-        Win32::RoundRect (txDC(), x, 30, x+140, 70, 30, 30);
-        txSetColor(TX_BLACK);
-        txSelectFont("Times New Roman", 24);
-        txDrawText (x, 30, x+140, 70, name);
-    }
-    bool click()
-    {
-        return( txMouseButtons() == 1 &&
-        txMouseX() >= x && txMouseX() <= x+140 &&
-        txMouseY() >= 35 && txMouseY() <= 75);
-    }
-
-
-};
-
-struct Picture
-{
-     int x;
-     int y;
-     HDC pic;
-     int w_scr;
-     int h_scr;
-     int w;
-     int h;
-     bool visible;
-     string category;
-
-    void draw()
-    {
-       if(visible)
-        {
-            Win32::TransparentBlt (txDC(), x, y, w_scr, h_scr, pic, 0, 0, w, h, TX_WHITE);
-        }
-    }
-
-    bool click()
-    {
-        return( txMouseButtons() == 1 &&
-        txMouseX() >= 10 && txMouseX() <= 150 &&
-        txMouseY() >= y && txMouseY() <= y+150);
-    }
-
-
-
-};
-
-
+    #include "TXLib.h"
+    #include "Button.cpp"
+    #include "Picture.cpp"
 
     int main()
     {
@@ -70,7 +10,8 @@ struct Picture
     txDisableAutoPause();
     txTextCursor (false);
     int count_btn = 5;
-    int count_pic = 8;
+    int count_pic = 9;
+    int nCentralPic = 0;
 
     //кнопки масив(маленькие слова +120, большие +200)
     Button btn[count_btn];
@@ -90,20 +31,11 @@ struct Picture
     menuPic[5] = {10, 500, txLoadImage("Pic/–астительность/boroda.bmp"), 150, 150, 500, 500, false, "растительность"};
     menuPic[6] = {10, 100, txLoadImage("Pic/Ўл€пы/Fur.bmp"), 150, 150, 500, 500, false, "шл€пы"};
     menuPic[7] = {10, 300, txLoadImage("Pic/Ўл€пы/cow.bmp"), 150, 150, 500, 500, false, "шл€пы"};
+    menuPic[8] = {10, 500, txLoadImage("Pic/Ўл€пы/clown.bmp"), 150, 150, 500, 500, false, "шл€пы"};
 
 
     //картинки на физ. поле
-    Picture centrPic[count_pic];
-    centrPic[0] = {350, 100, menuPic[0].pic, 500, 500, menuPic[0].w, menuPic[0].h, false, "персонажи"};
-    centrPic[1] = {350, 100, menuPic[1].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "персонажи"};
-    centrPic[2] = {350, 100, menuPic[2].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "персонажи"};
-    centrPic[3] = {350, 100, menuPic[3].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
-    centrPic[4] = {350, 100, menuPic[4].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
-    centrPic[5] = {350, 100, menuPic[5].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "растительность"};
-    centrPic[6] = {350, 100, menuPic[6].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "шл€пы"};
-    centrPic[7] = {350, 100, menuPic[7].pic, 500, 500, menuPic[1].w, menuPic[1].h, false, "шл€пы"};
-
-
+    Picture centrPic[100];
     int vybor = -1;
     bool mouse_click = false;
 
@@ -144,22 +76,28 @@ struct Picture
             }
         }
 
-        //ликвидировать
+        //ликвидировать(цикл фор)
         for(int npic=0; npic<count_pic; npic++)
         {
             if(menuPic[npic].click() && menuPic[npic].visible)
             {
-                for(int npic1=0; npic1<count_pic; npic1++)
-                {
-                    if(centrPic[npic1].category == centrPic[npic].category)
-                    {
-                        centrPic[npic1].visible = false;
-                    }
-
-                }
-                centrPic[npic].visible = !centrPic[npic].visible;
+             while(txMouseButtons() == 1)
+             {
                 txSleep(10);
+             }
+             centrPic[nCentralPic] = {  500,
+                                        100,
+                                        menuPic[npic].pic,
+                                        menuPic[npic].w,
+                                        menuPic[npic].h,
+                                        menuPic[npic].w,
+                                        menuPic[npic].h,
+                                        menuPic[npic].visible,
+                                        menuPic[npic].category};
+             nCentralPic ++;
             }
+
+
          }
         //клик по картинке
         for(int npic=0; npic<count_pic; npic++)
@@ -174,15 +112,10 @@ struct Picture
 
         for(int i=0; i<count_pic; i++)
         {
-          if(txMouseButtons() == 1 &&
-          txMouseX() >= centrPic[i].x &&
-          txMouseX()<= centrPic[i].x + centrPic[i].w_scr &&
-          txMouseY() >= centrPic[i].y &&
-          txMouseY()<= centrPic[i].y + centrPic[i].h_scr &&
-          centrPic[i].visible)
+          if(centrPic[i].click() && centrPic[i].visible)
           {
-            vybor = i;
-            mouse_click = false;
+                vybor = i;
+                mouse_click = false;
           }
 
 
@@ -249,7 +182,7 @@ struct Picture
         txSleep(50);
     }
 
-    for(int i=0; i<count_pic; i++)
+    for(int i=0; i<nCentralPic; i++)
  {
         txDeleteDC (centrPic[i].pic);
  }
