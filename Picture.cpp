@@ -1,12 +1,14 @@
 
 
-   #include "TXLib.h"
+#include "TXLib.h"
 
+using namespace std;
 
 struct Picture
 {
      int x;
      int y;
+     string adress;
      HDC pic;
      int w_scr;
      int h_scr;
@@ -29,7 +31,9 @@ struct Picture
         txMouseX() >= x && txMouseX() <= x+w_scr &&
         txMouseY() >= y && txMouseY() <= y+h_scr);
     }
-
-
-
 };
+
+
+
+
+
