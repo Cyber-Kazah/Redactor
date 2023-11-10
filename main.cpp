@@ -42,6 +42,16 @@ int get_h(string adress)
             {
                 if((string)ent->d_name != "." && (string)ent->d_name != "..")
                 {
+                    if(Y<=500 && X == 20)
+                    {
+                        X = 20;
+                    }
+                    else if (Y>600)
+                    {
+                        X = 120;
+                        Y = 100;
+                    }
+
                     menuPic[count_pic].y = Y;
                     menuPic[count_pic].x = X;
 
@@ -94,8 +104,8 @@ int get_h(string adress)
         menuPic[i].w = get_w(menuPic[i].adress);
         menuPic[i].h = get_h(menuPic[i].adress);
 
-        menuPic[i].w_scr = menuPic[i].w/4;
-        menuPic[i].h_scr = menuPic[i].w/4;
+        menuPic[i].w_scr = menuPic[i].w/5;
+        menuPic[i].h_scr = menuPic[i].w/5;
 
         menuPic[i].visible = false;
         string str = menuPic[i].adress;
