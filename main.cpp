@@ -74,7 +74,7 @@ int get_h(string adress)
     txCreateWindow (1200, 700);
     txDisableAutoPause();
     txTextCursor (false);
-    int count_btn = 5;
+    int count_btn = 6;
     int count_pic = 0;
     int nCentralPic = 0;
 
@@ -85,6 +85,7 @@ int get_h(string adress)
     btn[2] = {460, "шляпы", "шляпы"};
     btn[3] = {660, "оптика", "оптика"};
     btn[4] = {860, "аксессуары", "аксессуары"};
+    btn[5] = {860, "друзья", "друзья"};
 
     //картинки меню выбора(масив)
     Picture menuPic[100];
@@ -157,93 +158,81 @@ int get_h(string adress)
             }
         }
 
-        //ликвидировать(цикл фор)
         for(int npic=0; npic<count_pic; npic++)
         {
             if(menuPic[npic].click() && menuPic[npic].visible)
             {
-             while(txMouseButtons() == 1)
-             {
-                txSleep(10);
-             }
-             centrPic[nCentralPic] = {  500,
-                                        100,
-                                        menuPic[npic].adress,
-                                        menuPic[npic].pic,
-                                        menuPic[npic].w,
-                                        menuPic[npic].h,
-                                        menuPic[npic].w,
-                                        menuPic[npic].h,
-                                        menuPic[npic].visible,
-                                        menuPic[npic].category};
-             nCentralPic ++;
+                 while(txMouseButtons() == 1)
+                 {
+                    txSleep(10);
+                 }
+                 centrPic[nCentralPic] = {  500,
+                                            100,
+                                            menuPic[npic].adress,
+                                            menuPic[npic].pic,
+                                            menuPic[npic].w,
+                                            menuPic[npic].h,
+                                            menuPic[npic].w,
+                                            menuPic[npic].h,
+                                            menuPic[npic].visible,
+                                            menuPic[npic].category};
+                 nCentralPic ++;
             }
 
 
          }
-        //клик по картинке
-        for(int npic=0; npic<count_pic; npic++)
-        {
-            if(menuPic[npic].click() && menuPic[npic].visible)
-            {
-                centrPic[npic].visible = true;
-            }
-
-
-        }
 
         for(int i=0; i<nCentralPic; i++)
         {
-          if(centrPic[i].click() && centrPic[i].visible)
-          {
-                vybor = i;
-                mouse_click = false;
-          }
+              if(centrPic[i].click() && centrPic[i].visible)
+              {
+                    vybor = i;
+                    mouse_click = false;
+              }
+        }
+
         if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
         {
-            centrPic[vybor] = centrPic[nCentralPic-1];
-            nCentralPic--;
-            vybor = -1;
-            mouse_click = true;
+                centrPic[vybor] = centrPic[nCentralPic-1];
+                nCentralPic--;
+                vybor = -1;
+                mouse_click = true;
         }
 
-        }
+
 
         char str[10];
-        sprintf(str, "Номер картинки = %d", vybor);
+        sprintf(str, "Номер картинки = %d Количество = %d", vybor, count_pic/*nCentralPic*/);
         txTextOut(10, 650, str);
 
         if(vybor>=0)
         {
-        if(GetAsyncKeyState (VK_LEFT))
-         {
-            centrPic[vybor].x -= 5;
-         }
-        if(GetAsyncKeyState (VK_RIGHT))
-         {
-            centrPic[vybor].x += 5;
-         }
-        if(GetAsyncKeyState (VK_DOWN))
-         {
-            centrPic[vybor].y += 5;
-         }
-        if(GetAsyncKeyState (VK_UP))
-         {
-            centrPic[vybor].y -= 5;
-         }
-        if(GetAsyncKeyState (VK_OEM_PLUS) || GetAsyncKeyState (VK_ADD))
-         {
-            centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1.1;
-            centrPic[vybor].h_scr = centrPic[vybor].h_scr * 1.1;
-         }
-        if(GetAsyncKeyState (VK_OEM_MINUS) || GetAsyncKeyState (VK_SUBTRACT))
-         {
-            centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;
-            centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;
-         }
-
-
-
+            if(GetAsyncKeyState (VK_LEFT))
+             {
+                centrPic[vybor].x -= 5;
+             }
+            if(GetAsyncKeyState (VK_RIGHT))
+             {
+                centrPic[vybor].x += 5;
+             }
+            if(GetAsyncKeyState (VK_DOWN))
+             {
+                centrPic[vybor].y += 5;
+             }
+            if(GetAsyncKeyState (VK_UP))
+             {
+                centrPic[vybor].y -= 5;
+             }
+            if(GetAsyncKeyState (VK_OEM_PLUS) || GetAsyncKeyState (VK_ADD))
+             {
+                centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1.1;
+                centrPic[vybor].h_scr = centrPic[vybor].h_scr * 1.1;
+             }
+            if(GetAsyncKeyState (VK_OEM_MINUS) || GetAsyncKeyState (VK_SUBTRACT))
+             {
+                centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;
+                centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;
+             }
         }
 
         if(vybor>=0)
