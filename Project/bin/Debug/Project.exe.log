@@ -1,0 +1,488 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Project\bin\Debug\Project.exe, файл: e:\codeblocks\mingw\include\txlib.h, строка: 13628, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRE0, Thread: 0x22C4 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004221C3 in D:\Project\bin\Debug\Project.exe: txBitBlt() at e:/codeblocks/mingw/include/txlib.h (13628)
+
+# 1 0x0042C642 in D:\Project\bin\Debug\Project.exe: main() at D:/Project/main.cpp (63):
+
+     61:         txSelectFont("Times New Roman", 24);
+     62:         txDrawText (0, 50, 1200, 200, "Кнопка 2 нажата");
+=>   63:         txBitBlt (txDC(), 100, 200, 500, 500, pic1);
+     64: 
+     65:     }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at e:\codeblocks\mingw\include\txlib.h (13628):
+
+  13626:     {
+  13627: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13628: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13629: 
+  13630: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at D:\Project\main.cpp (63):
+
+     61:         txSelectFont("Times New Roman", 24);
+     62:         txDrawText (0, 50, 1200, 200, "Кнопка 2 нажата");
+=>   63:         txBitBlt (txDC(), 100, 200, 500, 500, pic1);
+     64: 
+     65:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	e:\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 18:40:54, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 18:41:16
+
+Run file:	D:\Project\bin\Debug\Project.exe
+Directory:	D:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Project\bin\Debug\Project.exe, файл: e:\codeblocks\mingw\include\txlib.h, строка: 13628, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRE0, Thread: 0x1EB4 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004221C3 in D:\Project\bin\Debug\Project.exe: txBitBlt() at e:/codeblocks/mingw/include/txlib.h (13628)
+
+# 1 0x0042C642 in D:\Project\bin\Debug\Project.exe: main() at D:/Project/main.cpp (63):
+
+     61:         txSelectFont("Times New Roman", 24);
+     62:         txDrawText (0, 50, 1200, 200, "Кнопка 2 нажата");
+=>   63:         txBitBlt (txDC(), 100, 200, 500, 500, pic1);
+     64: 
+     65:     }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at e:\codeblocks\mingw\include\txlib.h (13628):
+
+  13626:     {
+  13627: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13628: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13629: 
+  13630: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at D:\Project\main.cpp (63):
+
+     61:         txSelectFont("Times New Roman", 24);
+     62:         txDrawText (0, 50, 1200, 200, "Кнопка 2 нажата");
+=>   63:         txBitBlt (txDC(), 100, 200, 500, 500, pic1);
+     64: 
+     65:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	e:\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 18:40:54, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 18:41:33
+
+Run file:	D:\Project\bin\Debug\Project.exe
+Directory:	D:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Project\bin\Debug\Project.exe, файл: e:\codeblocks\mingw\include\txlib.h, строка: 13628, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRE0, Thread: 0x1DE8 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004221C3 in D:\Project\bin\Debug\Project.exe: txBitBlt() at e:/codeblocks/mingw/include/txlib.h (13628)
+
+# 1 0x0042C65E in D:\Project\bin\Debug\Project.exe: main() at D:/Project/main.cpp (76):
+
+     74:         txSelectFont("Times New Roman", 24);
+     75:         txDrawText (0, 50, 1200, 200, "Шеф");
+=>   76:         txBitBlt (txDC(), 200, 300, 500, 500, pic1);
+     77: 
+     78:     }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at e:\codeblocks\mingw\include\txlib.h (13628):
+
+  13626:     {
+  13627: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13628: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13629: 
+  13630: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at D:\Project\main.cpp (76):
+
+     74:         txSelectFont("Times New Roman", 24);
+     75:         txDrawText (0, 50, 1200, 200, "Шеф");
+=>   76:         txBitBlt (txDC(), 200, 300, 500, 500, pic1);
+     77: 
+     78:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	e:\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 18:50:21, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 18:50:40
+
+Run file:	D:\Project\bin\Debug\Project.exe
+Directory:	D:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Project\bin\Debug\Project.exe, файл: e:\codeblocks\mingw\include\txlib.h, строка: 13628, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRE0, Thread: 0xE4C (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004221C3 in D:\Project\bin\Debug\Project.exe: txBitBlt() at e:/codeblocks/mingw/include/txlib.h (13628)
+
+# 1 0x0042C65E in D:\Project\bin\Debug\Project.exe: main() at D:/Project/main.cpp (76):
+
+     74:         txSelectFont("Times New Roman", 24);
+     75:         txDrawText (0, 50, 1200, 200, "Шеф");
+=>   76:         txBitBlt (txDC(), 200, 300, 500, 500, pic1);
+     77: 
+     78:     }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at e:\codeblocks\mingw\include\txlib.h (13628):
+
+  13626:     {
+  13627: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13628: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13629: 
+  13630: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at D:\Project\main.cpp (76):
+
+     74:         txSelectFont("Times New Roman", 24);
+     75:         txDrawText (0, 50, 1200, 200, "Шеф");
+=>   76:         txBitBlt (txDC(), 200, 300, 500, 500, pic1);
+     77: 
+     78:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	e:\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 18:50:21, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 18:52:09
+
+Run file:	D:\Project\bin\Debug\Project.exe
+Directory:	D:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Project\bin\Debug\Project.exe, файл: e:\codeblocks\mingw\include\txlib.h, строка: 13628, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRE0, Thread: 0x127C (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004221C3 in D:\Project\bin\Debug\Project.exe: txBitBlt() at e:/codeblocks/mingw/include/txlib.h (13628)
+
+# 1 0x0042C697 in D:\Project\bin\Debug\Project.exe: main() at D:/Project/main.cpp (76):
+
+     74:         txSelectFont("Times New Roman", 24);
+     75:         txDrawText (0, 50, 1200, 200, "Шеф");
+=>   76:         txBitBlt (txDC(), 200, 300, 500, 500, pic1);
+     77: 
+     78:     }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at e:\codeblocks\mingw\include\txlib.h (13628):
+
+  13626:     {
+  13627: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13628: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13629: 
+  13630: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at D:\Project\main.cpp (76):
+
+     74:         txSelectFont("Times New Roman", 24);
+     75:         txDrawText (0, 50, 1200, 200, "Шеф");
+=>   76:         txBitBlt (txDC(), 200, 300, 500, 500, pic1);
+     77: 
+     78:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	e:\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 18 2023 18:57:41, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 18 2023 18:58:01
+
+Run file:	D:\Project\bin\Debug\Project.exe
+Directory:	D:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: E:\Project\bin\Debug\Project.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13568, функция: HDC__* {anonymous}::TX::txLoadImage(const char*, int, int, unsigned int, unsigned int),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "filename && *filename".
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0xC24 (Main), GetLastError(): 160 (Неверны один или несколько аргументов), errno: 2 (No such file or directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00421906 in E:\Project\bin\Debug\Project.exe: txLoadImage() at c:/codeblocks/codeblocks/mingw/include/txlib.h (13568)
+
+# 1 0x0042CD65 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (103):
+
+    101:     {
+    102: 
+=>  103:         menuPic[i].pic = txLoadImage(menuPic[i].adress.c_str());
+    104: 
+    105:         menuPic[i].w = get_w(menuPic[i].adress);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HDC__* {anonymous}::TX::txLoadImage(const char*, int, int, unsigned int, unsigned int) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13568):
+
+  13566:                  unsigned imageFlags /*= IMAGE_BITMAP*/, unsigned loadFlags /*= LR_LOADFROMFILE*/)
+  13567:     {
+=>13568: $1  if (_TX_ARGUMENT_FAILED (filename && *filename)) return NULL;
+  13569: 
+  13570: $   HBITMAP image = (HBITMAP) Win32::LoadImage ((loadFlags & LR_LOADFROMFILE)? NULL : GetModuleHandle (NULL),
+
+# 1 in int main() at E:\Project\main.cpp (103):
+
+    101:     {
+    102: 
+=>  103:         menuPic[i].pic = txLoadImage(menuPic[i].adress.c_str());
+    104: 
+    105:         menuPic[i].w = get_w(menuPic[i].adress);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov  6 2023 19:06:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 06 2023 19:07:23
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75F89618 в функции strchr(). Попытка прочесть данные по адресу 0x4085E000 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005082FC (32-bit), Flags: CMdRE0, Thread: 0x207C (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75F89618 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044CBE8 in E:\Project\bin\Debug\Project.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042C9C1 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (132):
+
+    130:         for(int i=0; i<count_btn; i++)
+    131:         {
+=>  132:             btn[i].draw();
+    133:         }
+    134:         //рисование картинок в меню
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at E:\Project\Button.cpp (22):
+
+     20:         txSetColor(TX_BLACK);
+     21:         txSelectFont("Times New Roman", 24);
+=>   22:         txDrawText (x, 30, x+140, 70, name);
+     23:     }
+     24:     bool click()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 13 2023 19:18:15, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 13 2023 19:18:47
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75F89618 в функции strchr(). Попытка прочесть данные по адресу 0x4085E000 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005082FC (32-bit), Flags: CMdRE0, Thread: 0x207C (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75F89618 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044CBE8 in E:\Project\bin\Debug\Project.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042C9C1 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (132):
+
+    130:         for(int i=0; i<count_btn; i++)
+    131:         {
+=>  132:             btn[i].draw();
+    133:         }
+    134:         //рисование картинок в меню
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at E:\Project\Button.cpp (22):
+
+     20:         txSetColor(TX_BLACK);
+     21:         txSelectFont("Times New Roman", 24);
+=>   22:         txDrawText (x, 30, x+140, 70, name);
+     23:     }
+     24:     bool click()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 13 2023 19:18:15, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 13 2023 19:18:47
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
