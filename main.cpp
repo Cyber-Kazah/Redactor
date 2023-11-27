@@ -1,5 +1,4 @@
 
-
     #include "TXLib.h"
     #include "Button.cpp"
     #include "Picture.cpp"
@@ -7,8 +6,10 @@
     #include <stdio.h>
     #include <dirent.h>
 
-int get_w(string adress)
-{
+    using namespace std;
+
+    int get_w(string adress)
+    {
 
     FILE *f1 = fopen(adress.c_str(), "rb");
     unsigned char headerinfo[54];
@@ -17,8 +18,8 @@ int get_w(string adress)
     return w;
 }
 
-int get_h(string adress)
-{
+    int get_h(string adress)
+    {
 
     FILE *f1 = fopen(adress.c_str(), "rb");
     unsigned char headerinfo[54];
@@ -26,8 +27,6 @@ int get_h(string adress)
     int h = *(int *)&headerinfo[22];
     return h;
 }
-
-
 
     int ReadFromDir(string adress, Picture menuPic[], int count_pic)
     {
@@ -69,23 +68,28 @@ int get_h(string adress)
       return count_pic;
     }
 
+    const int count_btn = 8;
+    const int btn_save = count_btn-2;
+    const int btn_load = count_btn-1;
+
     int main()
     {
-    txCreateWindow (1200, 700);
+    txCreateWindow (1300, 700);
     txDisableAutoPause();
     txTextCursor (false);
-    int count_btn = 6;
     int count_pic = 0;
     int nCentralPic = 0;
 
     //кнопки масив(маленькие слова +120, большие +200)
     Button btn[count_btn];
-    btn[0] = {60, "персонажи", "персонажи"};
-    btn[1] = {260, "растительность", "растительность"};
-    btn[2] = {460, "шл€пы", "шл€пы"};
-    btn[3] = {660, "оптика", "оптика"};
-    btn[4] = {860, "аксессуары", "аксессуары"};
-    btn[5] = {860, "друзь€", "друзь€"};
+    btn[0] = {60, 30, "персонажи", "персонажи"};
+    btn[1] = {260, 30, "растительность", "растительность"};
+    btn[2] = {460, 30,  "шл€пы", "шл€пы"};
+    btn[3] = {660, 30,  "оптика", "оптика"};
+    btn[4] = {860, 30,  "аксессуары", "аксессуары"};
+    btn[5] = {1060, 30,  "друзь€", "друзь€"};
+    btn[6] = {60, 650,  "—охранить", ""};
+    btn[7] = {210, 650,  "«агрузить", ""};
 
     //картинки меню выбора(масив)
     Picture menuPic[100];
@@ -96,6 +100,7 @@ int get_h(string adress)
     count_pic = ReadFromDir("Pic/шл€пы/", menuPic, count_pic);
     count_pic = ReadFromDir("Pic/оптика/", menuPic, count_pic);
     count_pic = ReadFromDir("Pic/аксессуары/", menuPic, count_pic);
+    count_pic = ReadFromDir("Pic/друзь€/", menuPic, count_pic);
 
     for(int i=0; i<count_pic; i++)
     {
@@ -124,8 +129,8 @@ int get_h(string adress)
     while(!GetAsyncKeyState (VK_ESCAPE))
     {
         txBegin();
-        txSetColor(TX_YELLOW);
-        txSetFillColor(TX_YELLOW);
+        txSetColor(TX_WHITE);
+        txSetFillColor(TX_WHITE);
         txClear();
         //кнопки
         for(int i=0; i<count_btn; i++)
@@ -201,9 +206,6 @@ int get_h(string adress)
 
 
 
-        char str[10];
-        sprintf(str, "Ќомер картинки = %d  оличество = %d", vybor, count_pic/*nCentralPic*/);
-        txTextOut(10, 650, str);
 
         if(vybor>=0)
         {
@@ -250,6 +252,74 @@ int get_h(string adress)
                 }
             }
 
+        }
+        //сохранени€
+        if(btn[btn_save].click())
+        {
+            ofstream fileout;
+            fileout.open("hello.txt");
+            if (fileout.is_open())
+            {
+                for(int i=0; i<nCentralPic; i++)
+                {
+                    if(centrPic[i].visible)
+                    {
+                        fileout << centrPic[i].x << endl;
+                        fileout << centrPic[i].y << endl;
+                        fileout << centrPic[i].adress << endl;
+                        fileout << centrPic[i].w_scr << endl;
+                        fileout << centrPic[i].h_scr << endl;
+                    }
+                }
+            }
+            fileout.close();
+        }
+
+        //загрузка
+        if(btn[btn_load].click())
+        {
+            char buff[50];
+            ifstream filein("hello.txt"); // окрываем файл дл€ чтени€
+            while (filein.good())
+            {
+                filein.getline(buff, 50);
+                int x = atoi(buff);
+
+                filein.getline(buff, 50);
+                int y = atoi(buff);
+
+                filein.getline(buff, 50);
+                string adress = buff;
+
+                filein.getline(buff, 50);
+                int w_scr = atoi(buff);
+
+                filein.getline(buff, 50);
+                int h_scr = atoi(buff);
+
+                for(int i = 0; i<count_pic; i++)
+                {
+                    if(menuPic[i].adress == adress)
+                    {
+                      centrPic[nCentralPic] = { x,
+                                                y,
+                                                menuPic[i].adress,
+                                                menuPic[i].pic,
+                                                w_scr,
+                                                h_scr,
+                                                menuPic[i].w,
+                                                menuPic[i].h,
+                                                true,
+                                                menuPic[i].category};
+                      nCentralPic ++;
+                    }
+
+                }
+
+
+
+            }
+            filein.close();
         }
 
 
