@@ -4,34 +4,54 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>17-11-2023 at 19:38.48</u><br />
-Build ended on: <u>17-11-2023 at 19:39.22</u><p />
+Build started on: <u>15-12-2023 at 18:37.27</u><br />
+Build ended on: <u>15-12-2023 at 18:38.07</u><p />
 <b>-------------- Build: Debug in Project (compiler: NOT FOR PROJECTS! = MinGW GCC + Strict + Fast + Save (Requires Git))---------------</b><br />
 g++git-auto.bat "E:\Project\main.cpp" -o bin\Debug\Project.exe -mwindows  -Wall -fexceptions  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
 ------------------------------------------------------------------------------------------------------<br />
 Compilation ERRORS:<br />
 <br />
 E:\Project\main.cpp: In function 'int get_w(std::string)':<br />
-<font color="#0000ff">E:\Project\main.cpp:9:9: warning: no previous declaration for 'int get_w(std::string)' [-Wmissing-declarations]</font><br />
+<font color="#0000ff">E:\Project\main.cpp:11:9: warning: no previous declaration for 'int get_w(std::string)' [-Wmissing-declarations]</font><br />
      int get_w(string adress)<br />
          ^<br />
 E:\Project\main.cpp: In function 'int get_h(std::string)':<br />
-<font color="#0000ff">E:\Project\main.cpp:19:9: warning: no previous declaration for 'int get_h(std::string)' [-Wmissing-declarations]</font><br />
+<font color="#0000ff">E:\Project\main.cpp:21:9: warning: no previous declaration for 'int get_h(std::string)' [-Wmissing-declarations]</font><br />
      int get_h(string adress)<br />
          ^<br />
 E:\Project\main.cpp: In function 'int ReadFromDir(std::string, Picture*, int)':<br />
-<font color="#0000ff">E:\Project\main.cpp:29:9: warning: no previous declaration for 'int ReadFromDir(std::string, Picture*, int)' [-Wmissing-declarations]</font><br />
+<font color="#0000ff">E:\Project\main.cpp:31:9: warning: no previous declaration for 'int ReadFromDir(std::string, Picture*, int)' [-Wmissing-declarations]</font><br />
      int ReadFromDir(string adress, Picture menuPic[], int count_pic)<br />
          ^<br />
+E:\Project\main.cpp: In function 'std::string runFiledialog(bool)':<br />
+<font color="#0000ff">E:\Project\main.cpp:71:12: warning: no previous declaration for 'std::string runFiledialog(bool)' [-Wmissing-declarations]</font><br />
+     string runFiledialog(bool isSave)<br />
+            ^<br />
+E:\Project\main.cpp: In function 'bool SaveBMPFile(char*, HBITMAP, HDC, int, int)':<br />
+<font color="#0000ff">E:\Project\main.cpp:118:10: warning: no previous declaration for 'bool SaveBMPFile(char*, HBITMAP, HDC, int, int)' [-Wmissing-declarations]</font><br />
+     bool SaveBMPFile(char *filename, HBITMAP bitmap, HDC bitmapDC, int width, int height)<br />
+          ^<br />
+<font color="#0000ff">E:\Project\main.cpp:120:14: warning: unused variable 'Success' [-Wunused-variable]</font><br />
+         bool Success=0;<br />
+              ^<br />
+E:\Project\main.cpp: At global scope:<br />
+<font color="#0000ff">E:\Project\main.cpp:118:10: warning: unused parameter 'bitmap' [-Wunused-parameter]</font><br />
+     bool SaveBMPFile(char *filename, HBITMAP bitmap, HDC bitmapDC, int width, int height)<br />
+          ^<br />
+E:\Project\main.cpp: In function 'bool ScreenCapture(int, int, int, int, char*, HWND)':<br />
+<font color="#0000ff">E:\Project\main.cpp:199:10: warning: no previous declaration for 'bool ScreenCapture(int, int, int, int, char*, HWND)' [-Wmissing-declarations]</font><br />
+     bool ScreenCapture(int x, int y, int width, int height, char *filename, HWND hwnd)<br />
+          ^<br />
 In file included from E:\Project\main.cpp:3:0:<br />
 E:\Project\Button.cpp: In constructor 'Button::Button()':<br />
 <font color="#0000ff">E:\Project\Button.cpp:6:8: warning: 'Button::x' should be initialized in the member initialization list [-Weffc++]</font><br />
  struct Button<br />
         ^<br />
+<font color="#0000ff">E:\Project\Button.cpp:6:8: warning: 'Button::y' should be initialized in the member initialization list [-Weffc++]</font><br />
 <font color="#0000ff">E:\Project\Button.cpp:6:8: warning: 'Button::name' should be initialized in the member initialization list [-Weffc++]</font><br />
 <font color="#0000ff">E:\Project\Button.cpp:6:8: warning: 'Button::category' should be initialized in the member initialization list [-Weffc++]</font><br />
 E:\Project\main.cpp: In function 'int main()':<br />
-E:\Project\main.cpp:79:25: note: synthesized method 'Button::Button()' first required here <br />
+E:\Project\main.cpp:256:25: note: synthesized method 'Button::Button()' first required here <br />
      Button btn[count_btn];<br />
                          ^<br />
 In file included from E:\Project\main.cpp:4:0:<br />
@@ -49,35 +69,38 @@ E:\Project\Picture.cpp: In constructor 'Picture::Picture()':<br />
 <font color="#0000ff">E:\Project\Picture.cpp:7:8: warning: 'Picture::visible' should be initialized in the member initialization list [-Weffc++]</font><br />
 <font color="#0000ff">E:\Project\Picture.cpp:7:8: warning: 'Picture::category' should be initialized in the member initialization list [-Weffc++]</font><br />
 E:\Project\main.cpp: In function 'int main()':<br />
-E:\Project\main.cpp:88:24: note: synthesized method 'Picture::Picture()' first required here <br />
+E:\Project\main.cpp:271:24: note: synthesized method 'Picture::Picture()' first required here <br />
      Picture menuPic[100];<br />
                         ^<br />
-<font color="#0000ff">E:\Project\main.cpp:223:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
-                 centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1.1;<br />
-                                                               ^<br />
-<font color="#0000ff">E:\Project\main.cpp:224:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
-                 centrPic[vybor].h_scr = centrPic[vybor].h_scr * 1.1;<br />
-                                                               ^<br />
-<font color="#0000ff">E:\Project\main.cpp:228:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
-                 centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;<br />
-                                                               ^<br />
-<font color="#0000ff">E:\Project\main.cpp:229:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
-                 centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;<br />
-                                                               ^<br />
-<font color="#0000ff">E:\Project\main.cpp:237:48: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
-                 centrPic[vybor].x = txMouseX() - centrPic[vybor].w_scr/2;<br />
-                                                ^<br />
-<font color="#0000ff">E:\Project\main.cpp:238:48: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
-                 centrPic[vybor].y = txMouseY() - centrPic[vybor].h_scr/2;<br />
-                                                ^<br />
-<font color="#0000ff">E:\Project\main.cpp:270:1: warning: stack usage might be unbounded [-Wstack-usage=]</font><br />
+<font color="#0000ff">E:\Project\main.cpp:423:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                     centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1.1;<br />
+                                                                   ^<br />
+<font color="#0000ff">E:\Project\main.cpp:424:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                     centrPic[vybor].h_scr = centrPic[vybor].h_scr * 1.1;<br />
+                                                                   ^<br />
+<font color="#0000ff">E:\Project\main.cpp:428:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                     centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;<br />
+                                                                   ^<br />
+<font color="#0000ff">E:\Project\main.cpp:429:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                     centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;<br />
+                                                                   ^<br />
+<font color="#0000ff">E:\Project\main.cpp:437:52: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                     centrPic[vybor].x = txMouseX() - centrPic[vybor].w_scr/2;<br />
+                                                    ^<br />
+<font color="#0000ff">E:\Project\main.cpp:438:52: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                     centrPic[vybor].y = txMouseY() - centrPic[vybor].h_scr/2;<br />
+                                                    ^<br />
+<font color="#0000ff">E:\Project\main.cpp:563:66: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]</font><br />
+             ScreenCapture(250, 100, 700, 500, "1.bmp", txWindow());<br />
+                                                                  ^<br />
+<font color="#0000ff">E:\Project\main.cpp:586:1: warning: stack usage might be 9104 bytes [-Wstack-usage=]</font><br />
  }<br />
  ^<br />
 ------------------------------------------------------------------------------------------------------<br />
 Autosaving to the Git repository in E:/Project/.git-auto/... <br />
-Output size is 2,28 MB<br />
-<font color="#0000ff">Process terminated with status 0 (0 minutes, 33 seconds)</font><br />
-<font color="#0000ff">0 errors, 23 warnings (0 minutes, 33 seconds)</font><br />
+Output size is 2,30 MB<br />
+<font color="#0000ff">Process terminated with status 0 (0 minutes, 39 seconds)</font><br />
+<font color="#0000ff">0 errors, 30 warnings (0 minutes, 39 seconds)</font><br />
 </tt>
 </body>
 </html>

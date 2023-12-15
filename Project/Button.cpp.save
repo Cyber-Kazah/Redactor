@@ -6,6 +6,7 @@
 struct Button
 {
     int x;
+    int y;
     const char* name;
     string category;
 
@@ -13,19 +14,19 @@ struct Button
     {
         txSetColor(TX_TRANSPARENT);
         txSetFillColor(TX_GRAY);
-        Win32::RoundRect (txDC(), x+5, 35, x+145, 75, 30, 30);
+        Win32::RoundRect (txDC(), x+5, y+5, x+145, y+45, 30, 30);
         txSetColor(TX_BLACK, 2);
         txSetFillColor(TX_WHITE);
-        Win32::RoundRect (txDC(), x, 30, x+140, 70, 30, 30);
+        Win32::RoundRect (txDC(), x, y, x+140, y+40, 30, 30);
         txSetColor(TX_BLACK);
         txSelectFont("Times New Roman", 24);
-        txDrawText (x, 30, x+140, 70, name);
+        txDrawText (x, y, x+140, y+40, name);
     }
     bool click()
     {
         return( txMouseButtons() == 1 &&
         txMouseX() >= x && txMouseX() <= x+140 &&
-        txMouseY() >= 35 && txMouseY() <= 75);
+        txMouseY() >= y && txMouseY() <= y+40);
     }
 
 

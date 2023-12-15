@@ -486,3 +486,1475 @@ Run file:	E:\Project\bin\Debug\Project.exe
 Directory:	E:\Project
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: E:\Project\bin\Debug\Project.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 10851, функция: bool {anonymous}::TX::_txBuffer_Delete(HDC__**),
+
+Сообщение: Параметр "*dc" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x17D0 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041075E in E:\Project\bin\Debug\Project.exe: _txBuffer_Delete() at c:/codeblocks/codeblocks/mingw/include/txlib.h (10851)
+# 1 0x00421DB7 in E:\Project\bin\Debug\Project.exe: txDeleteDC() at c:/codeblocks/codeblocks/mingw/include/txlib.h (13597)
+# 2 0x00422027 in E:\Project\bin\Debug\Project.exe: txDeleteDC() at c:/codeblocks/codeblocks/mingw/include/txlib.h (13619)
+
+# 3 0x0042D7F6 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (287):
+
+    285:     for(int i=0; i<count_pic; i++)
+    286:  {
+=>  287:         txDeleteDC (menuPic[i].pic);
+    288:  }
+    289: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::_txBuffer_Delete(HDC__**) at c:\codeblocks\codeblocks\mingw\include\txlib.h (10851):
+
+  10849: $1  if (_TX_ARGUMENT_FAILED (dc)) return false;
+  10850: $   if (                   !*dc)  return false;
+=>10851: $   if (_TX_HDC_FAILED     (*dc)) return false;
+  10852: 
+  10853: $   if (!Win32::GetObjectType (Win32::GetCurrentObject (*dc, OBJ_BITMAP))) return false;
+
+# 1 in bool {anonymous}::TX::txDeleteDC(HDC__**) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13597):
+
+  13595: 
+  13596: $   HDC  dc = *pdc;
+=>13597: $   bool ok = _txBuffer_Delete (pdc);
+  13598: $   if (!ok) return false;
+  13599: 
+
+# 2 in bool {anonymous}::TX::txDeleteDC(HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13619):
+
+  13617: bool txDeleteDC (HDC dc)
+  13618:     {
+=>13619: $1  return txDeleteDC (&dc);
+  13620:     }
+  13621: 
+
+# 3 in int main() at E:\Project\main.cpp (287):
+
+    285:     for(int i=0; i<count_pic; i++)
+    286:  {
+=>  287:         txDeleteDC (menuPic[i].pic);
+    288:  }
+    289: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 24 2023 19:36:38, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 24 2023 19:38:09
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004530DC в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000038 в модуле E:\Project\bin\Debug\Project.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0xAD8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004530DC in E:\Project\bin\Debug\Project.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00481FEB in E:\Project\bin\Debug\Project.exe: swap() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00489329 in E:\Project\bin\Debug\Project.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0044D849 in E:\Project\bin\Debug\Project.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0042DA06 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (309):
+
+    307:                                                 menuPic[i].h,
+    308:                                                 true,
+=>  309:                                                 menuPic[i].category};
+    310:                       nCentralPic ++;
+    311:                     }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool Button::click() at E:\Project\Button.cpp (29):
+
+     27:         return( txMouseButtons() == 1 &&
+     28:         txMouseX() >= x && txMouseX() <= x+140 &&
+=>   29:         txMouseY() >= y && txMouseY() <= y+40);
+     30:     }
+     31: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 27 2023 19:35:28, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 27 2023 19:35:58
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004530DC в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000038 в модуле E:\Project\bin\Debug\Project.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0xAD8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004530DC in E:\Project\bin\Debug\Project.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00481FEB in E:\Project\bin\Debug\Project.exe: swap() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00489329 in E:\Project\bin\Debug\Project.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0044D849 in E:\Project\bin\Debug\Project.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0042DA06 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (309):
+
+    307:                                                 menuPic[i].h,
+    308:                                                 true,
+=>  309:                                                 menuPic[i].category};
+    310:                       nCentralPic ++;
+    311:                     }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool Button::click() at E:\Project\Button.cpp (29):
+
+     27:         return( txMouseButtons() == 1 &&
+     28:         txMouseX() >= x && txMouseX() <= x+140 &&
+=>   29:         txMouseY() >= y && txMouseY() <= y+40);
+     30:     }
+     31: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 27 2023 19:35:28, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 27 2023 19:35:59
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7588F932 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x1D3C (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7588F932 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x76826EA8 in C:\Windows\System32\ucrtbase.dll: CxxThrowException()
+# 2 0x7243029F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 3 0x72423A7F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 4 0x72423C34 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 5 0x7242CBC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 6 0x724374D4 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 7 0x72436FC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 8 0x727C477A in C:\Windows\system32\explorerframe.dll: DllCanUnloadNow()
+# 9 0x7275FEAF in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#10 0x7275F4D8 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#11 0x75B26533 in C:\Windows\System32\shcore.dll: IUnknown_SetSite()
+#12 0x727B0FC2 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#13 0x727B0EF7 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#14 0x72778313 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#15 0x7275E925 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#16 0x72796F12 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#20 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#21 0x76BF465E in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#22 0x76BF3D50 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#23 0x76BF3B75 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#24 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#25 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#26 0x76BF7239 in C:\Windows\System32\USER32.dll: GetSystemMetricsForDpi()
+#27 0x76BEEE26 in C:\Windows\System32\USER32.dll: RegisterClassExW()
+#28 0x76BE46A1 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#29 0x76BE45D2 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#30 0x76BE458B in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamW()
+#31 0x750738E0 in C:\Windows\System32\COMDLG32.dll: DllCanUnloadNow()
+#33 0x750ACA7D in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#34 0x750ABB1A in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#35 0x750A60E2 in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#36 0x7508C933 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#37 0x7508C6C7 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#38 0x7508D192 in C:\Windows\System32\COMDLG32.dll: GetSaveFileNameA()
+
+#39 0x0042C1D3 in E:\Project\bin\Debug\Project.exe: runFiledialog() at E:/Project/main.cpp (94):
+
+     92:             if(isSave)
+     93:             {
+=>   94:                 if (GetSaveFileName(&ofn)==TRUE)
+     95:                 {
+     96:                     Filename = ofn.lpstrFile;
+
+#40 0x0042D7B5 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (303):
+
+    301:         if(btn[btn_save].click())
+    302:         {
+=>  303:             string FileName = runFiledialog(true);
+    304:             ofstream fileout;
+    305:             fileout.open("hello.txt");
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in std::string runFiledialog(bool) at E:\Project\main.cpp (81):
+
+     79:             ZeroMemory(&ofn, sizeof(ofn));
+     80:             ofn.lStructSize = sizeof(ofn);
+=>   81:             ofn.hwndOwner = txWindow();
+     82:             ofn.lpstrFile = szFile;
+     83:             ofn.nMaxFile = sizeof(szFile);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  1 2023 19:29:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 01 2023 19:29:50
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7588F932 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x1F40 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7588F932 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x76826EA8 in C:\Windows\System32\ucrtbase.dll: CxxThrowException()
+# 2 0x7253029F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 3 0x72523A7F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 4 0x72523C34 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 5 0x7252CBC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 6 0x725374D4 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 7 0x72536FC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 8 0x727C477A in C:\Windows\system32\explorerframe.dll: DllCanUnloadNow()
+# 9 0x7275FEAF in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#10 0x7275F4D8 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#11 0x75B26533 in C:\Windows\System32\shcore.dll: IUnknown_SetSite()
+#12 0x727B0FC2 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#13 0x727B0EF7 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#14 0x72778313 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#15 0x7275E925 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#16 0x72796F12 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#20 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#21 0x76BF465E in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#22 0x76BF3D50 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#23 0x76BF3B75 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#24 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#25 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#26 0x76BF7239 in C:\Windows\System32\USER32.dll: GetSystemMetricsForDpi()
+#27 0x76BEEE26 in C:\Windows\System32\USER32.dll: RegisterClassExW()
+#28 0x76BE46A1 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#29 0x76BE45D2 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#30 0x76BE458B in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamW()
+#31 0x750738E0 in C:\Windows\System32\COMDLG32.dll: DllCanUnloadNow()
+#33 0x750ACA7D in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#34 0x750ABB1A in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#35 0x750A60E2 in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#36 0x7508C933 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#37 0x7508C6C7 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#38 0x7508D0C2 in C:\Windows\System32\COMDLG32.dll: GetOpenFileNameA()
+
+#39 0x0042C239 in E:\Project\bin\Debug\Project.exe: runFiledialog() at E:/Project/main.cpp (102):
+
+    100:             else
+    101:             {
+=>  102:                 if (GetOpenFileName(&ofn)==TRUE)
+    103:                 {
+    104:                     Filename = ofn.lpstrFile;
+
+#40 0x0042D9CC in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (326):
+
+    324:         if(btn[btn_load].click())
+    325:         {
+=>  326:             string FileName = runFiledialog(false);
+    327:             char buff[50];
+    328:             ifstream filein(FileName); // окрываем файл для чтения
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in std::string runFiledialog(bool) at E:\Project\main.cpp (81):
+
+     79:             ZeroMemory(&ofn, sizeof(ofn));
+     80:             ofn.lStructSize = sizeof(ofn);
+=>   81:             ofn.hwndOwner = txWindow();
+     82:             ofn.lpstrFile = szFile;
+     83:             ofn.nMaxFile = sizeof(szFile);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  1 2023 19:32:08, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 01 2023 19:32:50
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7588F932 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x1618 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7588F932 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x76826EA8 in C:\Windows\System32\ucrtbase.dll: CxxThrowException()
+# 2 0x7253029F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 3 0x72523A7F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 4 0x72523C34 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 5 0x7252CBC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 6 0x725374D4 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 7 0x72536FC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 8 0x727C477A in C:\Windows\system32\explorerframe.dll: DllCanUnloadNow()
+# 9 0x7275FEAF in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#10 0x7275F4D8 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#11 0x75B26533 in C:\Windows\System32\shcore.dll: IUnknown_SetSite()
+#12 0x727B0FC2 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#13 0x727B0EF7 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#14 0x72778313 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#15 0x7275E925 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#16 0x72796F12 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#20 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#21 0x76BF465E in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#22 0x76BF3D50 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#23 0x76BF3B75 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#24 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#25 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#26 0x76BF7239 in C:\Windows\System32\USER32.dll: GetSystemMetricsForDpi()
+#27 0x76BEEE26 in C:\Windows\System32\USER32.dll: RegisterClassExW()
+#28 0x76BE46A1 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#29 0x76BE45D2 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#30 0x76BE458B in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamW()
+#31 0x750738E0 in C:\Windows\System32\COMDLG32.dll: DllCanUnloadNow()
+#33 0x750ACA7D in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#34 0x750ABB1A in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#35 0x750A60E2 in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#36 0x7508C933 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#37 0x7508C6C7 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#38 0x7508D0C2 in C:\Windows\System32\COMDLG32.dll: GetOpenFileNameA()
+
+#39 0x0042C239 in E:\Project\bin\Debug\Project.exe: runFiledialog() at E:/Project/main.cpp (102):
+
+    100:             else
+    101:             {
+=>  102:                 if (GetOpenFileName(&ofn)==TRUE)
+    103:                 {
+    104:                     Filename = ofn.lpstrFile;
+
+#40 0x0042D9CC in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (326):
+
+    324:         if(btn[btn_load].click())
+    325:         {
+=>  326:             string FileName = runFiledialog(false);
+    327:             char buff[50];
+    328:             ifstream filein(FileName); // окрываем файл для чтения
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in std::string runFiledialog(bool) at E:\Project\main.cpp (81):
+
+     79:             ZeroMemory(&ofn, sizeof(ofn));
+     80:             ofn.lStructSize = sizeof(ofn);
+=>   81:             ofn.hwndOwner = txWindow();
+     82:             ofn.lpstrFile = szFile;
+     83:             ofn.nMaxFile = sizeof(szFile);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  1 2023 19:33:24, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 01 2023 19:34:02
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7588F932 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x3470 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7588F932 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x76826EA8 in C:\Windows\System32\ucrtbase.dll: CxxThrowException()
+# 2 0x7253029F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 3 0x72523A7F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 4 0x72523C34 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 5 0x7252CBC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 6 0x725374D4 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 7 0x72536FC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 8 0x727C477A in C:\Windows\system32\explorerframe.dll: DllCanUnloadNow()
+# 9 0x7275FEAF in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#10 0x7275F4D8 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#11 0x75B26533 in C:\Windows\System32\shcore.dll: IUnknown_SetSite()
+#12 0x727B0FC2 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#13 0x727B0EF7 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#14 0x72778313 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#15 0x7275E925 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#16 0x72796F12 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#20 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#21 0x76BF465E in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#22 0x76BF3D50 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#23 0x76BF3B75 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#24 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#25 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#26 0x76BF7239 in C:\Windows\System32\USER32.dll: GetSystemMetricsForDpi()
+#27 0x76BEEE26 in C:\Windows\System32\USER32.dll: RegisterClassExW()
+#28 0x76BE46A1 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#29 0x76BE45D2 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#30 0x76BE458B in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamW()
+#31 0x750738E0 in C:\Windows\System32\COMDLG32.dll: DllCanUnloadNow()
+#33 0x750ACA7D in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#34 0x750ABB1A in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#35 0x750A60E2 in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#36 0x7508C933 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#37 0x7508C6C7 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#38 0x7508D192 in C:\Windows\System32\COMDLG32.dll: GetSaveFileNameA()
+
+#39 0x0042C1D3 in E:\Project\bin\Debug\Project.exe: runFiledialog() at E:/Project/main.cpp (94):
+
+     92:             if(isSave)
+     93:             {
+=>   94:                 if (GetSaveFileName(&ofn)==TRUE)
+     95:                 {
+     96:                     Filename = ofn.lpstrFile;
+
+#40 0x0042D7A0 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (303):
+
+    301:         if(btn[btn_save].click())
+    302:         {
+=>  303:             string FileName = runFiledialog(true);
+    304:             ofstream fileout;
+    305:             fileout.open(FileName);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in std::string runFiledialog(bool) at E:\Project\main.cpp (81):
+
+     79:             ZeroMemory(&ofn, sizeof(ofn));
+     80:             ofn.lStructSize = sizeof(ofn);
+=>   81:             ofn.hwndOwner = txWindow();
+     82:             ofn.lpstrFile = szFile;
+     83:             ofn.nMaxFile = sizeof(szFile);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  1 2023 19:35:48, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 01 2023 19:36:20
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7588F932 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x29A8 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7588F932 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x76826EA8 in C:\Windows\System32\ucrtbase.dll: CxxThrowException()
+# 2 0x7253029F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 3 0x72523A7F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 4 0x72523C34 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 5 0x7252CBC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 6 0x725374D4 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 7 0x72536FC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 8 0x727C477A in C:\Windows\system32\explorerframe.dll: DllCanUnloadNow()
+# 9 0x7275FEAF in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#10 0x7275F4D8 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#11 0x75B26533 in C:\Windows\System32\shcore.dll: IUnknown_SetSite()
+#12 0x727B0FC2 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#13 0x727B0EF7 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#14 0x72778313 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#15 0x7275E925 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#16 0x72796F12 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#20 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#21 0x76BF465E in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#22 0x76BF3D50 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#23 0x76BF3B75 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#24 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#25 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#26 0x76BF7239 in C:\Windows\System32\USER32.dll: GetSystemMetricsForDpi()
+#27 0x76BEEE26 in C:\Windows\System32\USER32.dll: RegisterClassExW()
+#28 0x76BE46A1 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#29 0x76BE45D2 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#30 0x76BE458B in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamW()
+#31 0x750738E0 in C:\Windows\System32\COMDLG32.dll: DllCanUnloadNow()
+#33 0x750ACA7D in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#34 0x750ABB1A in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#35 0x750A60E2 in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#36 0x7508C933 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#37 0x7508C6C7 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#38 0x7508D0C2 in C:\Windows\System32\COMDLG32.dll: GetOpenFileNameA()
+
+#39 0x0042C239 in E:\Project\bin\Debug\Project.exe: runFiledialog() at E:/Project/main.cpp (102):
+
+    100:             else
+    101:             {
+=>  102:                 if (GetOpenFileName(&ofn)==TRUE)
+    103:                 {
+    104:                     Filename = ofn.lpstrFile;
+
+#40 0x0042D9B5 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (326):
+
+    324:         if(btn[btn_load].click())
+    325:         {
+=>  326:             string FileName = runFiledialog(false);
+    327:             for(int i = 0; i<count_pic; i++)
+    328:             {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in std::string runFiledialog(bool) at E:\Project\main.cpp (81):
+
+     79:             ZeroMemory(&ofn, sizeof(ofn));
+     80:             ofn.lStructSize = sizeof(ofn);
+=>   81:             ofn.hwndOwner = txWindow();
+     82:             ofn.lpstrFile = szFile;
+     83:             ofn.nMaxFile = sizeof(szFile);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  1 2023 19:41:10, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 01 2023 19:41:51
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#15: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7588F932 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+С помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x29A8 (Main), GetLastError(): 6 (Неверный дескриптор), errno: 22 (Invalid argument). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7588F932 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x76826EA8 in C:\Windows\System32\ucrtbase.dll: CxxThrowException()
+# 2 0x7253029F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 3 0x72523A7F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 4 0x72523C34 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 5 0x7252CBC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 6 0x725374D4 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 7 0x7253969E in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 8 0x72539CBA in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 9 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#10 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#11 0x76BF7537 in C:\Windows\System32\USER32.dll: GetSystemMetricsForDpi()
+#12 0x76BF56DB in C:\Windows\System32\USER32.dll: CallWindowProcW()
+#13 0x74E8AE5D in C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_a863d714867441db\Comctl32.dll: DefSubclassProc()
+#14 0x74E8ABF6 in C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_a863d714867441db\Comctl32.dll: DefSubclassProc()
+#15 0x7253D053 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+#16 0x74E8AE02 in C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_a863d714867441db\Comctl32.dll: DefSubclassProc()
+#17 0x74E8ACB1 in C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_a863d714867441db\Comctl32.dll: DefSubclassProc()
+#18 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#19 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#20 0x76BF5BCA in C:\Windows\System32\USER32.dll: DispatchMessageW()
+#21 0x76BF5990 in C:\Windows\System32\USER32.dll: DispatchMessageW()
+#22 0x7601B632 in C:\Windows\System32\SHELL32.dll: CommandLineToArgvW()
+#23 0x7601B526 in C:\Windows\System32\SHELL32.dll: CommandLineToArgvW()
+#24 0x76009148 in C:\Windows\System32\SHELL32.dll: SHCreateShellFolderView()
+#25 0x76008848 in C:\Windows\System32\SHELL32.dll: SHCreateShellFolderView()
+#26 0x7602B2D5 in C:\Windows\System32\SHELL32.dll: SHGetKnownFolderIDList()
+#27 0x75FD10E3 in C:\Windows\System32\SHELL32.dll: SHELL32_IconCacheRestore()
+#28 0x7602B486 in C:\Windows\System32\SHELL32.dll: Ordinal175()
+#29 0x75FBB3B6 in C:\Windows\System32\SHELL32.dll: SHGetInstanceExplorer()
+#30 0x75FC4174 in C:\Windows\System32\SHELL32.dll: SHELL32_IconOverlayManagerInit()
+#31 0x76017B7A in C:\Windows\System32\SHELL32.dll: ExtractIconExW()
+#32 0x76017A9A in C:\Windows\System32\SHELL32.dll: ExtractIconExW()
+#36 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#37 0x76BF465E in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#38 0x76BF3D50 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#39 0x76BF3B75 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#40 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#41 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#42 0x76BF7239 in C:\Windows\System32\USER32.dll: GetSystemMetricsForDpi()
+#43 0x76BEEE26 in C:\Windows\System32\USER32.dll: RegisterClassExW()
+#44 0x76BE46A1 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#45 0x76BE45D2 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#46 0x76BE458B in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamW()
+#47 0x750738E0 in C:\Windows\System32\COMDLG32.dll: DllCanUnloadNow()
+#49 0x750ACA7D in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#50 0x750ABB1A in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#51 0x750A60E2 in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#52 0x7508C933 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#53 0x7508C6C7 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#54 0x7508D0C2 in C:\Windows\System32\COMDLG32.dll: GetOpenFileNameA()
+
+#55 0x0042C239 in E:\Project\bin\Debug\Project.exe: runFiledialog() at E:/Project/main.cpp (102):
+
+    100:             else
+    101:             {
+=>  102:                 if (GetOpenFileName(&ofn)==TRUE)
+    103:                 {
+    104:                     Filename = ofn.lpstrFile;
+
+#56 0x0042D9B5 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (326):
+
+    324:         if(btn[btn_load].click())
+    325:         {
+=>  326:             string FileName = runFiledialog(false);
+    327:             for(int i = 0; i<count_pic; i++)
+    328:             {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in std::string runFiledialog(bool) at E:\Project\main.cpp (81):
+
+     79:             ZeroMemory(&ofn, sizeof(ofn));
+     80:             ofn.lStructSize = sizeof(ofn);
+=>   81:             ofn.hwndOwner = txWindow();
+     82:             ofn.lpstrFile = szFile;
+     83:             ofn.nMaxFile = sizeof(szFile);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  1 2023 19:41:10, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 01 2023 19:41:50
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7588F932 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x3268 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7588F932 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x76826EA8 in C:\Windows\System32\ucrtbase.dll: CxxThrowException()
+# 2 0x7243029F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 3 0x72423A7F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 4 0x72423C34 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 5 0x7242CBC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 6 0x724374D4 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 7 0x72436FC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 8 0x727C477A in C:\Windows\system32\explorerframe.dll: DllCanUnloadNow()
+# 9 0x7275FEAF in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#10 0x7275F4D8 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#11 0x75B26533 in C:\Windows\System32\shcore.dll: IUnknown_SetSite()
+#12 0x727B0FC2 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#13 0x727B0EF7 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#14 0x72778313 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#15 0x7275E925 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#16 0x72796F12 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#20 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#21 0x76BF465E in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#22 0x76BF3D50 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#23 0x76BF3B75 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#24 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#25 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#26 0x76BF7239 in C:\Windows\System32\USER32.dll: GetSystemMetricsForDpi()
+#27 0x76BEEE26 in C:\Windows\System32\USER32.dll: RegisterClassExW()
+#28 0x76BE46A1 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#29 0x76BE45D2 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#30 0x76BE458B in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamW()
+#31 0x750738E0 in C:\Windows\System32\COMDLG32.dll: DllCanUnloadNow()
+#33 0x750ACA7D in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#34 0x750ABB1A in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#35 0x750A60E2 in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#36 0x7508C933 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#37 0x7508C6C7 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#38 0x7508D0C2 in C:\Windows\System32\COMDLG32.dll: GetOpenFileNameA()
+
+#39 0x0042C239 in E:\Project\bin\Debug\Project.exe: runFiledialog() at E:/Project/main.cpp (102):
+
+    100:             else
+    101:             {
+=>  102:                 if (GetOpenFileName(&ofn)==true)
+    103:                 {
+    104:                     Filename = ofn.lpstrFile;
+
+#40 0x0042D9B5 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (326):
+
+    324:         if(btn[btn_load].click())
+    325:         {
+=>  326:             string FileName = runFiledialog(false);
+    327:             for(int i = 0; i<count_pic; i++)
+    328:             {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in std::string runFiledialog(bool) at E:\Project\main.cpp (81):
+
+     79:             ZeroMemory(&ofn, sizeof(ofn));
+     80:             ofn.lStructSize = sizeof(ofn);
+=>   81:             ofn.hwndOwner = txWindow();
+     82:             ofn.lpstrFile = szFile;
+     83:             ofn.nMaxFile = sizeof(szFile);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  1 2023 19:46:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 01 2023 19:46:49
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7588F932 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x2098 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7588F932 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x76826EA8 in C:\Windows\System32\ucrtbase.dll: CxxThrowException()
+# 2 0x7253029F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 3 0x72523A7F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 4 0x72523C34 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 5 0x7252CBC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 6 0x725374D4 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 7 0x72536FC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 8 0x727C477A in C:\Windows\system32\explorerframe.dll: DllCanUnloadNow()
+# 9 0x7275FEAF in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#10 0x7275F4D8 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#11 0x75B26533 in C:\Windows\System32\shcore.dll: IUnknown_SetSite()
+#12 0x727B0FC2 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#13 0x727B0EF7 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#14 0x72778313 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#15 0x7275E925 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#16 0x72796F12 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#20 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#21 0x76BF465E in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#22 0x76BF3D50 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#23 0x76BF3B75 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#24 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#25 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#26 0x76BF7239 in C:\Windows\System32\USER32.dll: GetSystemMetricsForDpi()
+#27 0x76BEEE26 in C:\Windows\System32\USER32.dll: RegisterClassExW()
+#28 0x76BE46A1 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#29 0x76BE45D2 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#30 0x76BE458B in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamW()
+#31 0x750738E0 in C:\Windows\System32\COMDLG32.dll: DllCanUnloadNow()
+#33 0x750ACA7D in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#34 0x750ABB1A in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#35 0x750A60E2 in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#36 0x7508C933 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#37 0x7508C6C7 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#38 0x7508D0C2 in C:\Windows\System32\COMDLG32.dll: GetOpenFileNameA()
+
+#39 0x0042C239 in E:\Project\bin\Debug\Project.exe: runFiledialog() at E:/Project/main.cpp (102):
+
+    100:             else
+    101:             {
+=>  102:                 if (GetOpenFileName(&ofn)==TRUE)
+    103:                 {
+    104:                     Filename = ofn.lpstrFile;
+
+#40 0x0042D9B5 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (326):
+
+    324:         if(btn[btn_load].click())
+    325:         {
+=>  326:             string FileName = runFiledialog(false);
+    327:             for(int i = 0; i<count_pic; i++)
+    328:             {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in std::string runFiledialog(bool) at E:\Project\main.cpp (81):
+
+     79:             ZeroMemory(&ofn, sizeof(ofn));
+     80:             ofn.lStructSize = sizeof(ofn);
+=>   81:             ofn.hwndOwner = txWindow();
+     82:             ofn.lpstrFile = szFile;
+     83:             ofn.nMaxFile = sizeof(szFile);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  1 2023 19:54:52, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 01 2023 19:55:29
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7588F932 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x1718 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7588F932 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x76826EA8 in C:\Windows\System32\ucrtbase.dll: CxxThrowException()
+# 2 0x728B029F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 3 0x728A3A7F in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 4 0x728A3C34 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 5 0x728ACBC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 6 0x728B74D4 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 7 0x728B6FC3 in C:\Windows\System32\Windows.UI.FileExplorer.dll: DllCanUnloadNow()
+# 8 0x72AF477A in C:\Windows\system32\explorerframe.dll: DllCanUnloadNow()
+# 9 0x72A8FEAF in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#10 0x72A8F4D8 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#11 0x75B26533 in C:\Windows\System32\shcore.dll: IUnknown_SetSite()
+#12 0x72AE0FC2 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#13 0x72AE0EF7 in C:\Windows\system32\explorerframe.dll: DllGetClassObject()
+#14 0x72AA8313 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#15 0x72A8E925 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#16 0x72AC6F12 in C:\Windows\system32\explorerframe.dll: Ordinal130()
+#20 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#21 0x76BF465E in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#22 0x76BF3D50 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#23 0x76BF3B75 in C:\Windows\System32\USER32.dll: EnumChildWindows()
+#24 0x76C00EAB in C:\Windows\System32\USER32.dll: AddClipboardFormatListener()
+#25 0x76BF7E5A in C:\Windows\System32\USER32.dll: GetClassLongW()
+#26 0x76BF7239 in C:\Windows\System32\USER32.dll: GetSystemMetricsForDpi()
+#27 0x76BEEE26 in C:\Windows\System32\USER32.dll: RegisterClassExW()
+#28 0x76BE46A1 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#29 0x76BE45D2 in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamAorW()
+#30 0x76BE458B in C:\Windows\System32\USER32.dll: DialogBoxIndirectParamW()
+#31 0x750738E0 in C:\Windows\System32\COMDLG32.dll: DllCanUnloadNow()
+#33 0x750ACA7D in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#34 0x750ABB1A in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#35 0x750A60E2 in C:\Windows\System32\COMDLG32.dll: PrintDlgA()
+#36 0x7508C933 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#37 0x7508C6C7 in C:\Windows\System32\COMDLG32.dll: Ssync_ANSI_UNICODE_Struct_For_WOW()
+#38 0x7508D0C2 in C:\Windows\System32\COMDLG32.dll: GetOpenFileNameA()
+
+#39 0x0042C239 in E:\Project\bin\Debug\Project.exe: runFiledialog() at E:/Project/main.cpp (102):
+
+    100:             else
+    101:             {
+=>  102:                 if (GetOpenFileName(&ofn)==TRUE)
+    103:                 {
+    104:                     Filename = ofn.lpstrFile;
+
+#40 0x0042D9B5 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (326):
+
+    324:         if(btn[btn_load].click())
+    325:         {
+=>  326:             string FileName = runFiledialog(false);
+    327:             for(int i = 0; i<count_pic; i++)
+    328:             {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in std::string runFiledialog(bool) at E:\Project\main.cpp (81):
+
+     79:             ZeroMemory(&ofn, sizeof(ofn));
+     80:             ofn.lStructSize = sizeof(ofn);
+=>   81:             ofn.hwndOwner = txWindow();
+     82:             ofn.lpstrFile = szFile;
+     83:             ofn.nMaxFile = sizeof(szFile);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  1 2023 19:57:32, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 01 2023 19:58:08
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: E:\Project\bin\Debug\Project.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13628, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: CMdRe0, Thread: 0x25B4 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004221C3 in E:\Project\bin\Debug\Project.exe: txBitBlt() at c:/codeblocks/codeblocks/mingw/include/txlib.h (13628)
+
+# 1 0x0044A28E in E:\Project\bin\Debug\Project.exe: draw() at E:/stalker_hunterUSB/Сохранения/main.cpp (656):
+
+    654:     txDisableAutoPause();
+    655:     return 0;
+=>  656:     }
+    657: 
+    658: 
+
+# 2 0x0042CBEB in E:\Project\bin\Debug\Project.exe: main() at E:/stalker_hunterUSB/Сохранения/main.cpp (244):
+
+    242:       {
+    243:         //меню
+=>  244:         menu.draw();
+    245:         //переход к игре
+    246:         btn.draw();
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13628):
+
+  13626:     {
+  13627: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13628: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13629: 
+  13630: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in void Background::draw() at E:\stalker_hunterUSB\Сохранения\main.cpp (16):
+
+     14:     void draw()
+     15:     {
+=>   16:         txBitBlt (txDC(), x, y, 1920, 946, image);
+     17:     }
+     18: };
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  4 2023 19:22:14, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 04 2023 19:22:58
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x770795F8 в функции strchr(). Попытка прочесть данные по адресу 0x00000009 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x3FD0 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x770795F8 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044DAE2 in E:\Project\bin\Debug\Project.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D015 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (217):
+
+    215:             for(int i=0; i<count_btn; i++)
+    216:             {
+=>  217:                 btn[i].draw();
+    218:             }
+    219:             //рисование картинок в меню
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at E:\Project\Button.cpp (23):
+
+     21:         txSetColor(TX_BLACK);
+     22:         txSelectFont("Times New Roman", 24);
+=>   23:         txDrawText (x, y, x+140, y+40, name);
+     24:     }
+     25:     bool click()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  8 2023 18:49:12, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 08 2023 18:49:48
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x770795F8 в функции strchr(). Попытка прочесть данные по адресу 0x00000009 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x3FD0 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x770795F8 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044DAE2 in E:\Project\bin\Debug\Project.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D015 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (217):
+
+    215:             for(int i=0; i<count_btn; i++)
+    216:             {
+=>  217:                 btn[i].draw();
+    218:             }
+    219:             //рисование картинок в меню
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at E:\Project\Button.cpp (23):
+
+     21:         txSetColor(TX_BLACK);
+     22:         txSelectFont("Times New Roman", 24);
+=>   23:         txDrawText (x, y, x+140, y+40, name);
+     24:     }
+     25:     bool click()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  8 2023 18:49:12, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 08 2023 18:49:48
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x770795F8 в функции strchr(). Попытка прочесть данные по адресу 0x00000009 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x3478 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x770795F8 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044DAE2 in E:\Project\bin\Debug\Project.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D015 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (217):
+
+    215:             for(int i=0; i<count_btn; i++)
+    216:             {
+=>  217:                 btn[i].draw();
+    218:             }
+    219:             //рисование картинок в меню
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at E:\Project\Button.cpp (23):
+
+     21:         txSetColor(TX_BLACK);
+     22:         txSelectFont("Times New Roman", 24);
+=>   23:         txDrawText (x, y, x+140, y+40, name);
+     24:     }
+     25:     bool click()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  8 2023 18:49:12, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 08 2023 18:51:26
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: E:\Project\bin\Debug\Project.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x770795F8 в функции strchr(). Попытка прочесть данные по адресу 0x00000009 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRE0, Thread: 0x3478 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x770795F8 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044DAE2 in E:\Project\bin\Debug\Project.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D015 in E:\Project\bin\Debug\Project.exe: main() at E:/Project/main.cpp (217):
+
+    215:             for(int i=0; i<count_btn; i++)
+    216:             {
+=>  217:                 btn[i].draw();
+    218:             }
+    219:             //рисование картинок в меню
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at E:\Project\Button.cpp (23):
+
+     21:         txSetColor(TX_BLACK);
+     22:         txSelectFont("Times New Roman", 24);
+=>   23:         txDrawText (x, y, x+140, y+40, name);
+     24:     }
+     25:     bool click()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  8 2023 18:49:12, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 08 2023 18:51:27
+
+Run file:	E:\Project\bin\Debug\Project.exe
+Directory:	E:\Project
+
+--------------------------------------------------
