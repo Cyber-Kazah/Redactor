@@ -221,17 +221,19 @@
 
 
     //кол. кнопок
-    const int count_btn = 12;
-    //сохранить загрузить
-    const int btn_prntsc = count_btn-6;
+    const int count_btn = 13;
+    //снимок экрана
+    const int btn_prntsc = count_btn-7;
     //сохранить и загрузить
-    const int btn_save = count_btn-5;
-    const int btn_load = count_btn-4;
+    const int btn_save = count_btn-6;
+    const int btn_load = count_btn-5;
     //справка
-    const int btn_help = count_btn-3;
-    //справка
-    const int btn_exit = count_btn-2;
-    //справка
+    const int btn_help = count_btn-4;
+    //выход
+    const int btn_exit = count_btn-3;
+    //очистка экрана
+    const int btn_clear = count_btn-2;
+    //старт
     const int btn_menu = count_btn-1;
     //меню
     const int page_menu = 0;
@@ -264,8 +266,9 @@
     btn[7] = {60, 650,  "Сохранить", ""};
     btn[8] = {210, 650,  "Загрузить", ""};
     btn[9] = {360, 650,  "Справка", ""};
-    btn[10] = {960, 650,  "Выход", ""};
-    btn[11] = {560, 270,  "Старт", ""};
+    btn[10] = {1060, 650,  "Выход", ""};
+    btn[11] = {910, 650,  "Очистка экрана", ""};
+    btn[12] = {560, 270,  "Старт", ""};
 
     //картинки меню выбора(масив)
     Picture menuPic[100];
@@ -286,8 +289,8 @@
         menuPic[i].w = get_w(menuPic[i].adress);
         menuPic[i].h = get_h(menuPic[i].adress);
 
-        menuPic[i].w_scr = menuPic[i].w/5;
-        menuPic[i].h_scr = menuPic[i].w/5;
+        menuPic[i].w_scr = menuPic[i].w/4.5;
+        menuPic[i].h_scr = menuPic[i].w/4.5;
 
         menuPic[i].visible = false;
         string str = menuPic[i].adress;
@@ -326,7 +329,7 @@
         {
             txSetColor(TX_BLACK);
             txSetFillColor(TX_WHITE);
-            txRectangle(250, 100, 950, 600);
+            txRectangle(350, 100, 1050, 600);
 
             //кнопки
             for(int i=0; i<count_btn-1; i++)
@@ -367,8 +370,8 @@
                      {
                         txSleep(10);
                      }
-                     centrPic[nCentralPic] = {  500,
-                                                100,
+                     centrPic[nCentralPic] = {  600,
+                                                150,
                                                 menuPic[npic].adress,
                                                 menuPic[npic].pic,
                                                 menuPic[npic].w,
@@ -425,8 +428,8 @@
                  }
                 if(GetAsyncKeyState (VK_OEM_MINUS) || GetAsyncKeyState (VK_SUBTRACT))
                  {
-                    centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;
-                    centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;
+                    centrPic[vybor].w_scr = centrPic[vybor].w_scr / 1.1;
+                    centrPic[vybor].h_scr = centrPic[vybor].h_scr / 1.1;
                  }
             }
 
@@ -528,6 +531,10 @@
                 txSleep(100);
             }
 
+            if(btn[btn_clear].click())
+            {
+                nCentralPic = 0;
+            }
 
 
 
@@ -557,10 +564,10 @@
 
 
         }
-
+        //
         if(btn[btn_prntsc].click())
         {
-            ScreenCapture(250, 100, 700, 500, "1.bmp", txWindow());
+            ScreenCapture(350, 100, 700, 500, "1.bmp", txWindow());
             txMessageBox("Сохранено в 1.bmp");
         }
 

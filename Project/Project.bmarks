@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Picture.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="253" topLine="0" />
-	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="5956" topLine="171" />
-		<BrowseMarks positions="1656,1741,2846,9670,18500" />
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="14080" topLine="228" />
+		<BrowseMarks positions="1656,1741,2846,9793,14946,18728" />
 		<Book_Marks positions="2864,12657,12696" />
+	</File>
+	<File name="Picture.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="253" topLine="0" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
 	</File>
 	<File name="Button.cpp" open="1" top="0" tabpos="3">
 		<Cursor position="49" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
 	</File>
 </BrowseTracker_layout_file>

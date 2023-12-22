@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>15-12-2023 at 18:37.27</u><br />
-Build ended on: <u>15-12-2023 at 18:38.07</u><p />
+Build started on: <u>22-12-2023 at 19:37.12</u><br />
+Build ended on: <u>22-12-2023 at 19:37.49</u><p />
 <b>-------------- Build: Debug in Project (compiler: NOT FOR PROJECTS! = MinGW GCC + Strict + Fast + Save (Requires Git))---------------</b><br />
 g++git-auto.bat "E:\Project\main.cpp" -o bin\Debug\Project.exe -mwindows  -Wall -fexceptions  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
 ------------------------------------------------------------------------------------------------------<br />
@@ -51,7 +51,7 @@ E:\Project\Button.cpp: In constructor 'Button::Button()':<br />
 <font color="#0000ff">E:\Project\Button.cpp:6:8: warning: 'Button::name' should be initialized in the member initialization list [-Weffc++]</font><br />
 <font color="#0000ff">E:\Project\Button.cpp:6:8: warning: 'Button::category' should be initialized in the member initialization list [-Weffc++]</font><br />
 E:\Project\main.cpp: In function 'int main()':<br />
-E:\Project\main.cpp:256:25: note: synthesized method 'Button::Button()' first required here <br />
+E:\Project\main.cpp:258:25: note: synthesized method 'Button::Button()' first required here <br />
      Button btn[count_btn];<br />
                          ^<br />
 In file included from E:\Project\main.cpp:4:0:<br />
@@ -69,38 +69,44 @@ E:\Project\Picture.cpp: In constructor 'Picture::Picture()':<br />
 <font color="#0000ff">E:\Project\Picture.cpp:7:8: warning: 'Picture::visible' should be initialized in the member initialization list [-Weffc++]</font><br />
 <font color="#0000ff">E:\Project\Picture.cpp:7:8: warning: 'Picture::category' should be initialized in the member initialization list [-Weffc++]</font><br />
 E:\Project\main.cpp: In function 'int main()':<br />
-E:\Project\main.cpp:271:24: note: synthesized method 'Picture::Picture()' first required here <br />
+E:\Project\main.cpp:274:24: note: synthesized method 'Picture::Picture()' first required here <br />
      Picture menuPic[100];<br />
                         ^<br />
-<font color="#0000ff">E:\Project\main.cpp:423:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+<font color="#0000ff">E:\Project\main.cpp:292:40: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+         menuPic[i].w_scr = menuPic[i].w/4.5;<br />
+                                        ^<br />
+<font color="#0000ff">E:\Project\main.cpp:293:40: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+         menuPic[i].h_scr = menuPic[i].w/4.5;<br />
+                                        ^<br />
+<font color="#0000ff">E:\Project\main.cpp:426:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
                      centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1.1;<br />
                                                                    ^<br />
-<font color="#0000ff">E:\Project\main.cpp:424:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+<font color="#0000ff">E:\Project\main.cpp:427:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
                      centrPic[vybor].h_scr = centrPic[vybor].h_scr * 1.1;<br />
                                                                    ^<br />
-<font color="#0000ff">E:\Project\main.cpp:428:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
-                     centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;<br />
+<font color="#0000ff">E:\Project\main.cpp:431:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                     centrPic[vybor].w_scr = centrPic[vybor].w_scr / 1.1;<br />
                                                                    ^<br />
-<font color="#0000ff">E:\Project\main.cpp:429:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
-                     centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;<br />
+<font color="#0000ff">E:\Project\main.cpp:432:67: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                     centrPic[vybor].h_scr = centrPic[vybor].h_scr / 1.1;<br />
                                                                    ^<br />
-<font color="#0000ff">E:\Project\main.cpp:437:52: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+<font color="#0000ff">E:\Project\main.cpp:440:52: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
                      centrPic[vybor].x = txMouseX() - centrPic[vybor].w_scr/2;<br />
                                                     ^<br />
-<font color="#0000ff">E:\Project\main.cpp:438:52: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+<font color="#0000ff">E:\Project\main.cpp:441:52: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
                      centrPic[vybor].y = txMouseY() - centrPic[vybor].h_scr/2;<br />
                                                     ^<br />
-<font color="#0000ff">E:\Project\main.cpp:563:66: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]</font><br />
-             ScreenCapture(250, 100, 700, 500, "1.bmp", txWindow());<br />
+<font color="#0000ff">E:\Project\main.cpp:570:66: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]</font><br />
+             ScreenCapture(350, 100, 700, 500, "1.bmp", txWindow());<br />
                                                                   ^<br />
-<font color="#0000ff">E:\Project\main.cpp:586:1: warning: stack usage might be 9104 bytes [-Wstack-usage=]</font><br />
+<font color="#0000ff">E:\Project\main.cpp:593:1: warning: stack usage might be 9152 bytes [-Wstack-usage=]</font><br />
  }<br />
  ^<br />
 ------------------------------------------------------------------------------------------------------<br />
 Autosaving to the Git repository in E:/Project/.git-auto/... <br />
 Output size is 2,30 MB<br />
-<font color="#0000ff">Process terminated with status 0 (0 minutes, 39 seconds)</font><br />
-<font color="#0000ff">0 errors, 30 warnings (0 minutes, 39 seconds)</font><br />
+<font color="#0000ff">Process terminated with status 0 (0 minutes, 36 seconds)</font><br />
+<font color="#0000ff">0 errors, 32 warnings (0 minutes, 36 seconds)</font><br />
 </tt>
 </body>
 </html>

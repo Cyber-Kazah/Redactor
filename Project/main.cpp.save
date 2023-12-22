@@ -196,7 +196,7 @@
         return 1;
     }
 
-    bool ScreenCapture(int x, int y, int width, int height, char *filename, HWND hwnd) 
+    bool ScreenCapture(int x, int y, int width, int height, char *filename, HWND hwnd)
     {
     HDC hDC = GetDC(hwnd);
     HDC hDc = CreateCompatibleDC(hDC);
@@ -218,20 +218,22 @@
     return ret;
 }
 
-            //Вызов функции снимка экрана
-
-            ScreenCapture(200, 100, 700, 600, "1.bmp", txWindow());
-            txMessageBox("Сохранено в 1.bmp");
 
 
     //кол. кнопок
-    const int count_btn = 11;
-    //сохранить загрузить
-    const int btn_prntsc = count_btn-5;
-    const int btn_save = count_btn-4;
-    const int btn_load = count_btn-3;
-    const int btn_help = count_btn-2;
+    const int count_btn = 13;
+    //снимок экрана
+    const int btn_prntsc = count_btn-7;
+    //сохранить и загрузить
+    const int btn_save = count_btn-6;
+    const int btn_load = count_btn-5;
     //справка
+    const int btn_help = count_btn-4;
+    //выход
+    const int btn_exit = count_btn-3;
+    //очистка экрана
+    const int btn_clear = count_btn-2;
+    //старт
     const int btn_menu = count_btn-1;
     //меню
     const int page_menu = 0;
@@ -264,7 +266,9 @@
     btn[7] = {60, 650,  "Сохранить", ""};
     btn[8] = {210, 650,  "Загрузить", ""};
     btn[9] = {360, 650,  "Справка", ""};
-    btn[10] = {560, 270,  "Старт", ""};
+    btn[10] = {1060, 650,  "Выход", ""};
+    btn[11] = {910, 650,  "Очистка экрана", ""};
+    btn[12] = {560, 270,  "Старт", ""};
 
     //картинки меню выбора(масив)
     Picture menuPic[100];
@@ -285,8 +289,8 @@
         menuPic[i].w = get_w(menuPic[i].adress);
         menuPic[i].h = get_h(menuPic[i].adress);
 
-        menuPic[i].w_scr = menuPic[i].w/5;
-        menuPic[i].h_scr = menuPic[i].w/5;
+        menuPic[i].w_scr = menuPic[i].w/4.5;
+        menuPic[i].h_scr = menuPic[i].w/4.5;
 
         menuPic[i].visible = false;
         string str = menuPic[i].adress;
@@ -301,7 +305,7 @@
     int vybor = -1;
     bool mouse_click = false;
 
-    while(!GetAsyncKeyState (VK_ESCAPE))
+    while(!btn[btn_exit].click())
     {
         txBegin();
         txSetColor(TX_WHITE);
@@ -323,9 +327,9 @@
         //редактор
         if(page == page_redactor)
         {
-            xSetColor(TX_WHITE);
+            txSetColor(TX_BLACK);
             txSetFillColor(TX_WHITE);
-            txRectangle(200, 100, 900, 750):
+            txRectangle(350, 100, 1050, 600);
 
             //кнопки
             for(int i=0; i<count_btn-1; i++)
@@ -424,8 +428,8 @@
                  }
                 if(GetAsyncKeyState (VK_OEM_MINUS) || GetAsyncKeyState (VK_SUBTRACT))
                  {
-                    centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;
-                    centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;
+                    centrPic[vybor].w_scr = centrPic[vybor].w_scr / 1.1;
+                    centrPic[vybor].h_scr = centrPic[vybor].h_scr / 1.1;
                  }
             }
 
@@ -527,6 +531,10 @@
                 txSleep(100);
             }
 
+            if(btn[btn_clear].click())
+            {
+                nCentralPic = 0;
+            }
 
 
 
@@ -542,7 +550,8 @@
                          "К твоему выбору предоставляется несколько удивительних звёзд, которых ты можешь одевать в разнообразные одевания\n"
                          "Управление происходит двумя способами: А. Стрелками, Б. Мышкой. \n"
                          "Аксесуары можно как увеличит, так и уменьшить на кнопки + и - соответственно\n"
-                         "Сохранение и загрузка твоих художеств происходят по отдельных кнопках в нижнем левом углу. \n"
+                         "Сохранение и загрузка твоих художеств происходят по отдельных кнопках в нижнем левом углу \n"
+                         "Вы можете сделать снимок ваших художеств, поместив их в окно и нажав одноимённую кнопку. \n"
                          "Выход на ESC. \n");
 
             btn[btn_help].draw();
@@ -555,6 +564,14 @@
 
 
         }
+        //
+        if(btn[btn_prntsc].click())
+        {
+            ScreenCapture(350, 100, 700, 500, "1.bmp", txWindow());
+            txMessageBox("Сохранено в 1.bmp");
+        }
+
+
 
         txEnd();
         txSleep(50);
